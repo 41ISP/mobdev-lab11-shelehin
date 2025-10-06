@@ -1,0 +1,145 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #111827 0%, #0a0d12 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #f3f4f6;
+}
+
+.main-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 0.8s ease;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: #9ca3af;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.search-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 60%;
+  max-width: 500px;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #374151;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f9fafb;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+.top-crypto {
+  margin-top: 3rem;
+}
+
+.top-crypto h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #f9fafb;
+}
+
+.crypto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.crypto-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.8rem 1.2rem;
+  width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.crypto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
+}
+
+.crypto-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+}
+
+.crypto-card h3 {
+  font-size: 1.1rem;
+  color: #f3f4f6;
+  margin-bottom: 0.4rem;
+}
+
+.crypto-price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.crypto-change {
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.crypto-change.positive {
+  color: #4ade80;
+}
+
+.crypto-change.negative {
+  color: #f87171;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    width: 80%;
+  }
+
+  .crypto-card {
+    width: 90%;
+  }
+}
