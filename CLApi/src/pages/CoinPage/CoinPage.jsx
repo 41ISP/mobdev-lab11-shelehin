@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom"
+import "./CoinPage.css"
 
-const CoinPage = ({ id, symbol, name, nameid, rank, price_usd, percent_change_24h, percent_change_1h,
-    percent_change_7d, price_btc, market_cap_usd, volume24, volume24a, csupply, tsupply, msupply}) => {
+const CoinPage = ({ symbol, name, rank, price_usd, percent_change_24h, percent_change_1h,
+    percent_change_7d, price_btc, market_cap_usd, volume24, csupply, tsupply, msupply}) => {
     const { id } = useParams()
     return (
         <div className="coin-page">
             <header className="coin-header">
-                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" className="coin-icon" />
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="{name}" className="coin-icon" />
                 <div className="coin-title">
                     <h1>Bitcoin</h1>
                     <p className="symbol">{symbol}</p>
