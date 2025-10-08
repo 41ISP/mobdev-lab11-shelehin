@@ -5,7 +5,8 @@ import { useEffect, useState } from "react"
 const CoinPage = () => {
     const { id } = useParams()
     const [coinDetails, setCoinDetails] = useState(undefined)
-    const {name, symbol, rank} = coinDetails || {}
+    const { symbol, name, rank, price_usd, percent_change_24h, percent_change_1h,
+    percent_change_7d, price_btc, market_cap_usd, volume24, csupply, tsupply, msupply} = coinDetails || {}
     useEffect(() => { 
     const handleSearch = async () => {
             try {
