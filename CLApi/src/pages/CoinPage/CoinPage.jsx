@@ -1,15 +1,34 @@
 import { useParams } from "react-router-dom"
 import "./CoinPage.css"
+import { useEffect, useState } from "react"
 
-const CoinPage = ({ symbol, name, rank, price_usd, percent_change_24h, percent_change_1h,
-    percent_change_7d, price_btc, market_cap_usd, volume24, csupply, tsupply, msupply}) => {
+const CoinPage = () => {
     const { id } = useParams()
+    const [coinDetails, setCoinDetails] = useState(undefined)
+    const {name} = coinDetails
+    useEffect(() => { 
+    const handleSearch = async () => {
+            try {
+                const parameters = new URLSearchParams({
+                    id: id
+                })
+                const res = await fetch(`https://api.coinlore.net/api/ticker/?${parameters.toString()}`)
+                const json = await res.json()
+                console.log(json);
+                setCoinDetails(json)
+            } catch (err) {
+                console.error(err)
+            }
+        }
+        handleSearch()
+    }, [])
     return (
         <div className="coin-page">
-            <header className="coin-header">
+{ coinDetails && <>
+           <header className="coin-header">
                 <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="{name}" className="coin-icon" />
                 <div className="coin-title">
-                    <h1>Bitcoin</h1>
+                    <h1>{name}</h1>
                     <p className="symbol">{symbol}</p>
                 </div>
                 <span className="rank">#{rank}</span>
@@ -38,6 +57,7 @@ const CoinPage = ({ symbol, name, rank, price_usd, percent_change_24h, percent_c
                 <div className="chart-placeholder">
                 </div>
             </section>
+</>}
         </div>
 
     )
