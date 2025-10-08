@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const CoinPage = () => {
     const { id } = useParams()
     const [coinDetails, setCoinDetails] = useState(undefined)
-    const {name} = coinDetails
+    const {name, symbol, rank} = coinDetails || {}
     useEffect(() => { 
     const handleSearch = async () => {
             try {
@@ -15,7 +15,7 @@ const CoinPage = () => {
                 const res = await fetch(`https://api.coinlore.net/api/ticker/?${parameters.toString()}`)
                 const json = await res.json()
                 console.log(json);
-                setCoinDetails(json)
+                setCoinDetails(json[0])
             } catch (err) {
                 console.error(err)
             }
@@ -24,9 +24,9 @@ const CoinPage = () => {
     }, [])
     return (
         <div className="coin-page">
-{ coinDetails && <>
+{ coinDetails && <> 
            <header className="coin-header">
-                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="{name}" className="coin-icon" />
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt={name} className="coin-icon" />
                 <div className="coin-title">
                     <h1>{name}</h1>
                     <p className="symbol">{symbol}</p>
