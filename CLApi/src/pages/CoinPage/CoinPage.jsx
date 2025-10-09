@@ -27,7 +27,7 @@ const CoinPage = () => {
         <div className="coin-page">
 { coinDetails && <> 
            <header className="coin-header">
-                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt={name} className="coin-icon" />
+                <img src={`https://cryptologos.cc/logos/${coin.nameid}-${symbol.toLowerCase()}-logo.png" alt={name} className="coin-icon`} />
                 <div className="coin-title">
                     <h1>{name}</h1>
                     <p className="symbol">{symbol}</p>

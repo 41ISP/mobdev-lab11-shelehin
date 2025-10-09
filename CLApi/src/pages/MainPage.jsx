@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 import './MainPage.css'
 import CoinCard from '@/components/CoinCard/CoinCard'
+import Pagination from '@/components/Pagination/Pagination'
 
 
 const MainPage = () => {
-    const [coinName, setCoinName] = useState('')
+    const [curPage, setCurPage] = useState(1)
     const [coins, setCoins] = useState(undefined)
+    const limit = 9
 
     useEffect(() => {
         const handleSearch = async () => {
             try {
                 const parameters = new URLSearchParams({
-                    limit: 3
+                    limit, start: limit * (curPage - 1)
                 })
                 const res = await fetch(`https://api.coinlore.net/api/tickers/?${parameters.toString()}`)
                 const json = await res.json()
@@ -22,7 +24,9 @@ const MainPage = () => {
             }
         }
         handleSearch()
-    }, [])
+    }, [curPage])
+    
+    
 
     return (
         <div className="main-page">
@@ -44,6 +48,7 @@ const MainPage = () => {
                     {coins && coins.data.map((coin) => <CoinCard key={coin.id} {...coin} />)}
                 </div>
             </section>
+            {coins && <Pagination setCurPage={setCurPage} coins={coins} limit={limit} curPage={curPage}/>}
         </div>
     )
 }
