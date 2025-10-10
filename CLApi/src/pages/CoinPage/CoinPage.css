@@ -101,3 +101,93 @@ body {
   background: rgba(255,255,255,0.1);
   border-radius: 12px;
 }
+.price-changes {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 10px 0;
+}
+/*color price*/
+.change {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.change.positive {
+  color: #16c784; /* зелёный */
+}
+
+.change.negative {
+  color: #ea3943; /* красный */
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.market-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 20px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.label {
+  font-size: 14px;
+  color: #aaa;
+  display: block;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+/* BTC Section */
+.btc-section {
+  margin-top: 30px;
+}
+
+.btc-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 20px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btc-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btc-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.btc-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #facc15; /* мягкий золотисто-жёлтый оттенок */
+}
+
+.btc-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}

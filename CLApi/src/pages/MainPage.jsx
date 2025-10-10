@@ -43,7 +43,7 @@ const MainPage = () => {
 
 
             <section className="top-crypto">
-                <h2>🔥 Топ криптовалют за сегодня</h2>
+                <h2>Список криптовалют</h2>
                 <div className="crypto-grid">
                     {coins && coins.data.map((coin) => <CoinCard key={coin.id} {...coin} />)}
                 </div>

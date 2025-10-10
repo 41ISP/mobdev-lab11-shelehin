@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
+import './CoinCard.css'
 
-const CoinCard = ({id, symbol, price_usd, percent_change_24h, nameid }) => {
+const CoinCard = ({ id, symbol, price_usd, percent_change_24h, nameid }) => {
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -14,7 +15,10 @@ const CoinCard = ({id, symbol, price_usd, percent_change_24h, nameid }) => {
                     alt={symbol} className="crypto-icon" />
                 <h3>{symbol}</h3>
                 <p className="crypto-price">{price_usd}$</p>
-                <p className="crypto-change positive">{percent_change_24h}</p>
+                <p className={`crypto-change ${percent_change_24h < 0 ? "negative" : "positive"}`}
+                >
+                    {percent_change_24h}%
+                </p>
             </div>
         </div>
     )

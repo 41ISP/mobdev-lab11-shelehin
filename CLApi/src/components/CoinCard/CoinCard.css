@@ -1,0 +1,12 @@
+.crypto-change {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.crypto-change.positive {
+  color: #16c784; /* зелёный */
+}
+
+.crypto-change.negative {
+  color: #ea3943; /* красный */
+}
