@@ -26,8 +26,6 @@ const MainPage = () => {
         handleSearch()
     }, [curPage])
     
-    
-
     return (
         <div className="main-page">
 
@@ -36,14 +34,7 @@ const MainPage = () => {
                 <p>Отслеживай курс популярных криптовалют в реальном времени</p>
             </header>
 
-
-            <section className="search-section">
-                <input type="text" placeholder="🔍 Найди свою монету..." className="search-input" />
-            </section>
-
-
             <section className="top-crypto">
-                <h2>Список криптовалют</h2>
                 <div className="crypto-grid">
                     {coins && coins.data.map((coin) => <CoinCard key={coin.id} {...coin} />)}
                 </div>
